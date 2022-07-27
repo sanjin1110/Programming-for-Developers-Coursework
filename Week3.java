@@ -1,4 +1,3 @@
-
 // Java program for Kruskal's algorithm to
 // find Minimum Spanning Tree of a given
 //connected, undirected and weighted graph
