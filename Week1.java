@@ -1,5 +1,3 @@
-import java.io.*;
-
 
 public class Week1 {
     // A Linked List node
@@ -127,47 +125,79 @@ public class Week1 {
         }
         return arr[0];
     }
+    static void printMidean(Node head)
+    {
+        Node slow_ptr = head;
+        Node fast_ptr = head;
+        Node pre_of_slow = head;
 
+        if (head != null)
+        {
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+
+                fast_ptr = fast_ptr.next.next;
+
+                // previous of slow_ptr
+                pre_of_slow = slow_ptr;
+                slow_ptr = slow_ptr.next;
+            }
+
+            // if the below condition is true linked list
+            // contain odd Node
+            // simply return middle element
+            if (fast_ptr != null)
+            {
+                System.out.print("Median is : " + slow_ptr.data);
+            }
+
+            // else linked list contain even element
+            else
+            {
+                System.out.print("Median is : "
+                        + (float) (slow_ptr.data + pre_of_slow.data) / 2);
+            }
+        }
+    }
     // Driver program to test
     // above functions
     public static void main (String[] args)
     {
 
         // Number of linked lists
-        int k = 4;
+        int k = 3;
 
         // Number of elements in each list
-        int n = 4;
+//        int n = 4;
 
         // an array of pointers storing the
         // head nodes of the linked lists
 
         Node[] arr = new Node[k];
 
-        arr[0] = new Node(1);
-        arr[0].next = new Node(5);
-        arr[0].next.next = new Node(3);
-        arr[0].next.next.next = new Node(7);
+        arr[0] = new Node(2);
+        arr[0].next = new Node(4);
+        arr[0].next.next = new Node(7);
+        arr[0].next.next.next = new Node(5);
+        arr[0].next.next.next.next = new Node(10);
 
-        arr[1] = new Node(2);
-        arr[1].next = new Node(9);
-        arr[1].next.next = new Node(6);
-        arr[1].next.next.next = new Node(8);
+        arr[1] = new Node(3);
+        arr[1].next = new Node(2);
+        arr[1].next.next = new Node(7);
+        arr[1].next.next.next = new Node(9);
 
-        arr[2] = new Node(0);
-        arr[2].next = new Node(12);
-        arr[2].next.next = new Node(10);
-        arr[2].next.next.next = new Node(11);
-
-        arr[3] = new Node(15);
-        arr[3].next = new Node(13);
-        arr[3].next.next = new Node(14);
-        arr[3].next.next.next = new Node(18);
+        arr[2] = new Node(12);
+        arr[2].next = new Node(5);
+        arr[2].next.next = new Node(6);
+        arr[2].next.next.next = new Node(9);
 
         // Merge all lists
         head = mergeKLists(arr, k - 1);
         sortList();
+        System.out.println("Merged Sorted Linked List : ");
         printList(head);
+        printMidean(head);
+
 
     }
 }
