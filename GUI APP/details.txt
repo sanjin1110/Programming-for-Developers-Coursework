@@ -1,0 +1,5 @@
+
+From: 1 To 3  Distance: 6 Km   Info: house1 to house3
+From: 1 To 2  Distance: 4 Km   Info: house1 to house2
+From: 3 To 4  Distance: 9 Km   Info: house3 to house4
+From: 4 To 3  Distance: 5 Km   Info: house4 to house3

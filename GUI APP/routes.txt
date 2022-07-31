@@ -1,0 +1,5 @@
+1;6km;house1
+2;4km;house2
+3;3km;house3
+4;3km;house4
+5;9km;house5
