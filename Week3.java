@@ -1,6 +1,4 @@
-// Java program for Kruskal's algorithm to
-// find Minimum Spanning Tree of a given
-//connected, undirected and weighted graph
+
 import java.util.*;
 import java.lang.*;
 
@@ -85,10 +83,8 @@ public class Week3 {
         for (i = 0; i < vertex; ++i)
             result[i] = new Edge();
 
-        // Step 1: Sort all the edges in non-decreasing
-        // order of their weight. If we are not allowed to
-        // change the given graph, we can create a copy of
-        // array of edges
+        // Step 1: Sort all the edges in non-decreasing order of their weight. If we are not allowed to
+        // change the given graph, we can create a copy of array of edges
         Arrays.sort(edge);
 
         // Allocate memory for creating V subsets
@@ -115,8 +111,7 @@ public class Week3 {
             int x = find(subsets, next_edge.src);
             int y = find(subsets, next_edge.dest);
 
-            // If including this edge doesn't cause cycle,
-            // include it in result and increment the index
+            // If including this edge doesn't cause cycle, include it in result and increment the index
             // of result for next edge
             if (x != y) {
                 result[e++] = next_edge;
