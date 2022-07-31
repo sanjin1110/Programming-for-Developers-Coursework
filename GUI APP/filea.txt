@@ -1,7 +1,0 @@
-sanjin;thapa
-sanjin123;123
-sna;sa
-hello;world
-hellow;world
-sanjinqq;www
-newuser;123
