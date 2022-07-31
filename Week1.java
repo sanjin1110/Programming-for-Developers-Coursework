@@ -5,7 +5,6 @@ public class Week1 {
     {
         int data;
         Node next;
-
         // Utility function to create a new node.
         Node(int key)
         {
