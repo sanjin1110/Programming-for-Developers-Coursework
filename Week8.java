@@ -3,8 +3,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class Week8 {
-    int [][]directions = {{0,1},{0,-1},{1,0},{-1,0}};
-    public int shortestPathAllKeys(String[] grid) {
+    int [][] direction = {{0,1},{0,-1},{1,0},{-1,0}};
+    public int shortPath(String[] grid) {
         int m = grid.length;
         int n = grid[0].length();
         Deque<int[]> q = new LinkedList<>();
@@ -29,7 +29,7 @@ public class Week8 {
             int key = cur[3];
             if (key == keys) return steps;
 
-            for (int[] direction: directions) {
+            for (int[] direction: direction) {
                 int newX = direction[0] + x;
                 int newY = direction[1] + y;
 
@@ -63,6 +63,6 @@ public class Week8 {
         Week8 obj = new Week8();
 
         String []grid = new String[] {"@*a*#","###*#","b*A*B"};
-        System.out.println(obj.shortestPathAllKeys(grid));
+        System.out.println(obj.shortPath(grid));
     }
 }
