@@ -29,10 +29,7 @@ public class Week1 {
         System.out.println();
     }
 
-    // The main function that
-    // takes an array of lists
-    // arr[0..last] and generates
-    // the sorted output
+    // The main function that takes an array of lists arr[0..last] and generates the sorted output
     static void sortList()
     {
 
@@ -46,14 +43,11 @@ public class Week1 {
         }
         else {
             while (current != null) {
-                // Node index will point to node next to
-                // current
+                // Node index will point to node next to current
                 index = current.next;
 
                 while (index != null) {
-                    // If current node's data is greater
-                    // than index's node data, swap the data
-                    // between them
+                    // If current node's data is greater than index's node data, swap the data between them
                     if (current.data > index.data) {
                         temp = current.data;
                         current.data = index.data;
@@ -68,15 +62,13 @@ public class Week1 {
     }
     static Node mergeKLists(Node arr[], int last)
     {
-
         // Traverse form second list to last
         for (int i = 1; i <= last; i++)
         {
             while(true)
             {
 
-                // head of both the lists,
-                // 0 and ith list.
+                // head of both the lists, 0 and ith list.
                 Node head_0 = arr[0];
                 Node head_i = arr[i];
 
@@ -159,16 +151,12 @@ public class Week1 {
             }
         }
     }
-    // Driver program to test
-    // above functions
+    // Driver program to test above functions
     public static void main (String[] args)
     {
 
         // Number of linked lists
         int k = 3;
-
-        // Number of elements in each list
-//        int n = 4;
 
         // an array of pointers storing the
         // head nodes of the linked lists
