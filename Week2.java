@@ -1,14 +1,14 @@
-class Week2 {
+public class Week2 {
 
-    int realArrLen;
+    int lenOfArr;
     int[] a;
 
-    Week2(int realArrLen, int[] a) {
+    Week2(int lenOfArr, int[] a) {
 
-        this.realArrLen = realArrLen;
+        this.lenOfArr = lenOfArr;
         // this.a = a;
-        int len = 0;
-        int[] passer = new int[a.length];
+        int length = 0;
+        int[] send = new int[a.length];
 
         for (int i = 0; i < a.length; i++) {
             boolean push = false;
@@ -29,46 +29,45 @@ class Week2 {
                 }
             }
             if (push) {
-                passer[len] = a[i];
+                send[length] = a[i];
                 push = false;
-                len++;
+                length++;
             }
         }
 
-        int[] originalPasser = new int[len];
+        int[] passReal = new int[length];
 
-        for (int i = 0; i < len; i++) {
-            originalPasser[i] = passer[i];
-            // System.out.println(passer[i]);
+        for (int i = 0; i < length; i++) {
+            passReal[i] = send[i];
+
         }
 
-        this.a = originalPasser;
+        this.a = passReal;
 
     }
 
-    void resultFinder() {
+    void findResult() {
 
         // Compilation of whole required functions or steps
 
-        int[][] outputValues = findPrime(a);
-        int[] primeValues = outputValues[0];
-        int primeItterator = outputValues[1][0];
-        // System.out.println(primeItterator);
-        if (primeItterator == realArrLen) {
+        int[][] resultVal = primeFind(a);
+        int[] primeVal = resultVal[0];
+        int iteratePrime = resultVal[1][0];
+        if (iteratePrime == lenOfArr) {
 
-            for (int i = 0; i < primeItterator; i++) {
-                System.out.println(primeValues[i]);
+            for (int i = 0; i < iteratePrime; i++) {
+                System.out.println(primeVal[i]);
             }
         } else {
 
-            int[] extra = extrasSearch(primeValues, primeItterator);
+            int[] extra = searchOther(primeVal, iteratePrime);
             // System.out.println(extra[0]);
-            for (int i = 0; i < realArrLen; i++) {
-                if (i >= primeItterator) {
-                    int num = i - primeItterator;
+            for (int i = 0; i < lenOfArr; i++) {
+                if (i >= iteratePrime) {
+                    int num = i - iteratePrime;
                     System.out.println(extra[num]);
                 } else {
-                    System.out.println(primeValues[i]);
+                    System.out.println(primeVal[i]);
                 }
 
             }
@@ -76,10 +75,10 @@ class Week2 {
 
     }
 
-    int[] extrasSearch(int[] primes, int primeItterator) {
+    int[] searchOther(int[] primes, int primeItterator) {
 
-        int[] extras = new int[realArrLen];
-        int extrasin = 0;
+        int[] extra = new int[lenOfArr];
+        int extraIn = 0;
         boolean skip = false;
         for (int i = 0; i < a.length; i++) {
             for (int ext = 0; ext < primes.length; ext++) {
@@ -109,36 +108,36 @@ class Week2 {
             }
 
             if (push) {
-                extras[extrasin] = a[i];
-                extrasin++;
+                extra[extraIn] = a[i];
+                extraIn++;
             }
 
         }
 
-        return extras;
+        return extra;
 
     }
 
-    int[][] findPrime(int[] arr) {
-        // Findout Prime numbers among element of given array arr
+    int[][] primeFind(int[] arr) {
+        // Find out Prime numbers among element of given array arr
 
-        int[] ourPrimeElements = new int[realArrLen];
-        int primeItterator = 0;
+        int[] ourPrimeElements = new int[lenOfArr];
+        int itePrime = 0;
 
         for (int i = 0; i < arr.length; i++) {
 
             if (arr[i] == 0) {
                 continue;
             } else if (arr[i] == 1) {
-                ourPrimeElements[primeItterator] = 1;
-                primeItterator++;
+                ourPrimeElements[itePrime] = 1;
+                itePrime++;
 
             } else if (arr[i] == 2) {
-                ourPrimeElements[primeItterator] = 2;
-                primeItterator++;
+                ourPrimeElements[itePrime] = 2;
+                itePrime++;
             } else if (arr[i] == 3) {
-                ourPrimeElements[primeItterator] = 3;
-                primeItterator++;
+                ourPrimeElements[itePrime] = 3;
+                itePrime++;
             }
 
             else {
@@ -149,9 +148,7 @@ class Week2 {
                 for (int j = 2; j <= divideLimit; j++) {
 
                     float check = (float) a[i] / j;
-                    // System.out.println(a[i]);
-                    // System.out.println(j);
-                    // System.out.println(check);
+
 
                     if (check == Math.floorDiv(a[i], j)) {
 
@@ -160,40 +157,28 @@ class Week2 {
                     }
                 }
 
-                if (prime == true) {
+                if (prime) {
 
-                    ourPrimeElements[primeItterator] = a[i];
-                    primeItterator++;
+                    ourPrimeElements[itePrime] = a[i];
+                    itePrime++;
                 }
 
             }
 
         }
 
-        int[][] returner = { ourPrimeElements, { primeItterator } };
+        int[][] returner = { ourPrimeElements, { itePrime } };
 
         return returner;
 
     }
-
-    // int[] filter(int[] primes) {
-    // // Filter among elements of arr and search for elements
-    // // with whole-number division from more than one number
-
-    // int wholeNumSuccess = 0;
-
-    // for(int i=0; i<a.length;i++){
-    // for(int j=0; )
-    // }
-
-    // }
 
     public static void main(String[] args) {
 
         int[] input = { 10, 10, 5, 0, 2, 1, 2, 5 };
 
         Week2 sub = new Week2(3, input);
-        sub.resultFinder();
+        sub.findResult();
     }
 
 }
